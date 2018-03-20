@@ -1,0 +1,53 @@
+package com.gzyouai.mango.ro.cmd;
+
+//火炮基础信息
+message TowerInfo{
+    required int32 id = 1;//id
+    required int32 starlevel = 2;//星级
+    optional int32 chipnum = 3;//升星所需的碎片的总数
+}
+
+//炮位基础信息
+message TowerPosInfo{
+    required int32 level =1;//炮位等级
+    required int32 equipid = 2;//装备的火炮的id(-1:没有装备)
+}
+//炮位装备列表
+message TowerEquipReq {
+
+}
+
+message TowerEquipResp {
+    repeated TowerPosInfo tposarray = 1; // 炮位列表
+    repeated TowerInfo tinfo = 2;//火炮列表
+}
+
+//炮位更换火炮
+message TowerChangeReq{
+    required int32 posid = 1;//炮位id
+    required int32 towerid = 2;//火炮id
+}
+message TowerChangeResp{
+     repeated TowerPosInfo tposarray = 1; // 炮位列表
+}
+
+//炮位升级
+message TowerPosUpgradeReq{
+    required int32 posid = 1;//炮位id
+    required int32 operate = 2;//(1:升级1次  10：升级10次)
+}
+
+message TowerPosUpgradeResp{
+	repeated TowerPosInfo tposarray = 1; // 炮位列表
+}
+
+//火炮升星
+message TowerUpStarReq{
+	required int32 id = 1;//火炮id
+	
+}
+
+message TowerUpStarResp{
+    repeated TowerInfo tinfo = 1;//火炮列表
+}
+

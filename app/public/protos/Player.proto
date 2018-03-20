@@ -1,0 +1,43 @@
+package com.gzyouai.mango.ro.cmd;
+
+
+//客户端发给服务端的命令数据
+message LoginReq {
+    required string uid = 1; //登录uid
+    required string key = 2; //登录key
+    required sint32 timestamp = 3; //时间戳
+    required string version = 4;
+    required string imei = 5;
+    required string clientIp = 6;
+    required int32 serverId = 7;
+    required int32 userType = 8;
+    optional string adapterInfos = 9; //设备信息
+}
+
+//服务端发给客户端的命令数据
+message LoginResp {
+    optional sint32 playerId = 1; //有playerID就返回
+}
+
+message CreateRoleReq{
+    required string name = 1;//角色名
+    required int32 serverId = 2;
+}
+
+message CreateRoleResp{
+	
+	
+}
+
+message RoleInfoReq{
+	required int32 playerId = 1;
+	
+}
+
+message RoleInfoResp{
+    required int32 level = 1;
+    required string nickname = 2;
+    required int32 gold = 3;
+    required int32 viplv = 4;
+}
+
